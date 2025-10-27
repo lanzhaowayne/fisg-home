@@ -412,6 +412,18 @@ h6, .font-size-6 {
   flex-direction: column;
   gap: 0.75em;
 }
+@media (max-width: 991.98px) {
+  .navbar-nav-dropdown-menu-list {
+    gap: 0.25em;
+    padding: 0.75em;
+  }
+  .navbar-nav-dropdown-menu-list:not(:last-child, :only-child) {
+    padding-bottom: 0.5em;
+  }
+  .navbar-nav-dropdown-menu-list:not(:first-child, :only-child) {
+    padding-top: 0.5em;
+  }
+}
 .navbar-nav-dropdown-menu-item-title {
   display: block;
   margin-bottom: 0.5em;
@@ -423,6 +435,11 @@ h6, .font-size-6 {
   background-repeat: no-repeat;
   background-size: 1em 1em;
   background-position: left center;
+}
+@media (max-width: 991.98px) {
+  .navbar-nav-dropdown-menu-item-title {
+    font-size: 1.0625em;
+  }
 }
 @media (max-width: 991.98px) {
   .navbar-nav-dropdown-toggler {
@@ -479,6 +496,7 @@ h6, .font-size-6 {
 }
 @media (max-width: 991.98px) {
   .navbar-func {
+    padding-top: 1em;
     width: 100%;
   }
 }
