@@ -11,7 +11,7 @@ html, body {
   line-height: 1.5;
   overflow-x: hidden;
 }
-html:has(.navbar-collapse.open, .dialog[open]), body:has(.navbar-collapse.open, .dialog[open]) {
+html:has(.dialog[open], .navbar-collapse.open), body:has(.dialog[open], .navbar-collapse.open) {
   overflow-y: hidden;
 }
 
@@ -234,11 +234,13 @@ h6, .font-size-6 {
 }
 .navbar-toggler {
   display: none;
+  flex-direction: column;
   margin-left: auto;
   flex: 0 0 auto;
   cursor: pointer;
   padding: 0;
   align-items: center;
+  justify-content: space-between;
   width: 25px;
   height: 20px;
   border: none;
@@ -250,7 +252,7 @@ h6, .font-size-6 {
 }
 @media (max-width: 991.98px) {
   .navbar-toggler {
-    display: block;
+    display: flex;
   }
 }
 .navbar-toggler:before {
@@ -264,6 +266,24 @@ h6, .font-size-6 {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+.navbar-toggler span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #00ffb3;
+  transition: 0.4s;
+  position: relative;
+  z-index: 1;
+}
+.navbar-toggler.is-active span:nth-of-type(1) {
+  transform: translate(0, 9px) rotate(-45deg);
+}
+.navbar-toggler.is-active span:nth-of-type(2) {
+  opacity: 0;
+}
+.navbar-toggler.is-active span:nth-of-type(3) {
+  transform: translate(0, -9px) rotate(45deg);
 }
 .navbar-toggler-icon {
   --icon-color: #00ffb3;
@@ -282,13 +302,14 @@ h6, .font-size-6 {
 }
 .navbar-toggler-icon:before {
   top: 9px;
+  transition: none;
 }
 .navbar-toggler-icon:after {
   top: 18px;
 }
 .navbar-toggler.is-active .navbar-toggler-icon {
   top: 50%;
-  transform: translateY(-50%) rotate(45deg);
+  transform: rotate(45deg);
 }
 .navbar-toggler.is-active .navbar-toggler-icon:before {
   opacity: 0;
@@ -296,7 +317,7 @@ h6, .font-size-6 {
 }
 .navbar-toggler.is-active .navbar-toggler-icon:after {
   top: 0;
-  transform: translateY(50%) rotate(-90deg);
+  transform: rotate(-90deg);
 }
 @media (min-width: 992px) {
   .navbar-nav {

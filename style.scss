@@ -10,7 +10,7 @@ html, body {
     scroll-behavior: smooth;
     line-height: 1.5;
     overflow-x: hidden;
-    &:has(.navbar-collapse.open, .dialog[open]) {
+    &:has(.dialog[open], .navbar-collapse.open) {
         overflow-y: hidden;
     }
 }
@@ -183,11 +183,13 @@ h6, .font-size-6 {
     }
     &-toggler {
         display: none;
+        flex-direction: column;
         margin-left: auto;
         flex: 0 0 auto;
         cursor: pointer;
         padding: 0;
         align-items: center;
+        justify-content: space-between;
         width: 25px;
         height: 20px;
         border: none;
@@ -197,7 +199,7 @@ h6, .font-size-6 {
         top: 12.5px;
         right: 10px;
         @media (max-width: 991.98px) {
-            display: block;
+            display: flex;
         }
         &:before {
             content: '';
@@ -210,6 +212,29 @@ h6, .font-size-6 {
             position: absolute;
             top: 50%;
             left: 50%;
+        }
+        span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #00ffb3;
+            // position: absolute;
+            transition: 0.4s;
+            position: relative;
+            z-index: 1;
+        }
+        &.is-active {
+            span {
+                &:nth-of-type(1) {
+                    transform: translate(0, 9px) rotate(-45deg);
+                }
+                &:nth-of-type(2) {
+                    opacity: 0;
+                }
+                &:nth-of-type(3) {
+                    transform: translate(0, -9px) rotate(45deg);
+                }
+            }
         }
         &-icon {
             --icon-color: #00ffb3;
@@ -228,17 +253,19 @@ h6, .font-size-6 {
                 top: 0;
             }
             &:before {
-                top: 9px
+                top: 9px;
+                transition: none;
             }
             &:after {
                 top: 18px;
+                // transform-origin: center center;
             }
         }
         &.is-active {
             .navbar-toggler-icon {
                 & {
                     top: 50%;
-                    transform: translateY(-50%) rotate(45deg);
+                    transform: rotate(45deg);
                 }
                 &:before {
                     opacity: 0;
@@ -246,7 +273,7 @@ h6, .font-size-6 {
                 }
                 &:after {
                     top: 0;
-                    transform: translateY(50%) rotate(-90deg);
+                    transform: rotate(-90deg);
                 }
             }
         }
