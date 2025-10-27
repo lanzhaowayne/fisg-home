@@ -10,7 +10,7 @@ html, body {
     scroll-behavior: smooth;
     line-height: 1.5;
     overflow-x: hidden;
-    &:has(.dialog[open], .navbar-collapse.open) {
+    &:has(.dialog[open]) {
         overflow-y: hidden;
     }
 }
