@@ -1765,6 +1765,11 @@ h6, .font-size-6 {
 .trading-section .mobile-app-action a:hover, .trading-section .mobile-app-action a:focus, .trading-section .mobile-app-action a:active {
   background-color: #222;
 }
+@media (max-width: 399.98px) {
+  .trading-section .mobile-app-action a {
+    padding: 0.25rem 0.5rem;
+  }
+}
 .trading-section .mobile-app-inner {
   padding-left: 32px;
   display: flex;

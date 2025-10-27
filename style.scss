@@ -1661,6 +1661,9 @@ h6, .font-size-6 {
                 &:hover, &:focus, &:active {
                     background-color: #222;
                 }
+                @media (max-width: 399.98px) {
+                    padding: 0.25rem 0.5rem;
+                }
             }
         }
         &-inner {
